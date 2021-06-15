@@ -21,34 +21,36 @@ candidateName = input.question("Enter your name: ");
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
 for (i=0; i < questions.length; i++) {
-  candidateAnswers.push(input.question(questions[i]))
+  candidateAnswers.push(input.question(questions[i]));
 }
 }
 
 function changeValueToUpperCase(array) {
-  let newTestArray = array.join(", ").toUpperCase().split(", ")
+  let newTestArray = array.join(", ").toUpperCase().split(", ");
 
- return newTestArray
+ return newTestArray;
 }
 
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   for (j=0; j <questions.length; j++) {
-    console.log(`${j+1}) ${questions[j]} \nYour answer: ${candidateAnswers[j]} \nThe correct answer: ${correctAnswers[j]}\n`)
+    console.log(`${j+1}) ${questions[j]} \nYour answer: ${candidateAnswers[j]} \nThe correct answer: ${correctAnswers[j]}\n`);
   }
 
   let grade = 0;
   for (i=0; i < questions.length; i++) {
-    if (changeValueToUpperCase(candidateAnswers)[i] === changeValueToUpperCase(correctAnswers)[i]) {grade = grade + 1} 
+    if (changeValueToUpperCase(candidateAnswers)[i] === changeValueToUpperCase(correctAnswers)[i]) {
+      grade = grade + 1;
+    } 
   } 
 
-  grade = grade/questions.length*100
+  grade = grade/questions.length*100;
 
   if (grade >= 80) {
-    console.log(`You passed the test with a score of ${grade}% \u2B50`)
+    console.log(`You passed the test with a score of ${grade}% \u2B50`);
   } else {
-    console.log(`You failed the test with a score of ${grade}%`)
+    console.log(`You failed the test with a score of ${grade}%`);
   }
   
   return grade;
