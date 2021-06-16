@@ -31,6 +31,16 @@ function changeValueToUpperCase(array) {
  return newTestArray;
 }
 
+function correctNumberOfResponces() {
+  let correctResponses = 0
+  for (i=0; i < questions.length; i++) {
+    if (changeValueToUpperCase(candidateAnswers)[i] === changeValueToUpperCase(correctAnswers)[i]) {
+      correctResponses = correctResponses + 1;
+    } 
+  } 
+return correctResponses  
+}
+
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
@@ -38,14 +48,7 @@ function gradeQuiz(candidateAnswers) {
     console.log(`${j+1}) ${questions[j]} \nYour answer: ${candidateAnswers[j]} \nThe correct answer: ${correctAnswers[j]}\n`);
   }
 
-  let grade = 0;
-  for (i=0; i < questions.length; i++) {
-    if (changeValueToUpperCase(candidateAnswers)[i] === changeValueToUpperCase(correctAnswers)[i]) {
-      grade = grade + 1;
-    } 
-  } 
-
-  grade = grade/questions.length*100;
+  let grade = correctNumberOfResponces()/questions.length*100;
 
   if (grade >= 80) {
     console.log(`You passed the test with a score of ${grade}% \u2B50`);
