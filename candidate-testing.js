@@ -37,6 +37,16 @@ function outputAnswers() {
   }
 }
 
+function calculateCorrectResponses() {
+  let correctResponses = 0
+  for (i=0; i < questions.length; i++) {
+    if (changeValueToUpperCase(candidateAnswers)[i] === changeValueToUpperCase(correctAnswers)[i]) {
+      correctResponses += 1;
+    } 
+  }
+  return correctResponses 
+}
+
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
@@ -44,19 +54,13 @@ function gradeQuiz(candidateAnswers) {
   outputAnswers();
 
   let grade = 0;
-  let correctResponses = 0
-  for (i=0; i < questions.length; i++) {
-    if (changeValueToUpperCase(candidateAnswers)[i] === changeValueToUpperCase(correctAnswers)[i]) {
-      correctResponses += 1;
-    } 
-  } 
 
-  grade = correctResponses/questions.length*100;
+  grade = calculateCorrectResponses()/questions.length*100;
 
   if (grade >= 80) {
-    console.log(`You passed the test with a score of ${grade}% (${correctResponses}/${questions.length}) \u2B50`);
+    console.log(`You passed the test with a score of ${grade}% (${calculateCorrectResponses()}/${questions.length}) \u2B50`);
   } else {
-    console.log(`You failed the test with a score of ${grade}% (${correctResponses}/${questions.length})`);
+    console.log(`You failed the test with a score of ${grade}% (${calculateCorrectResponses()}/${questions.length})`);
   }
   
   return grade;
