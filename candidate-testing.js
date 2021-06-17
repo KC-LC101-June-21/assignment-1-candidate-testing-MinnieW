@@ -31,12 +31,17 @@ function changeValueToUpperCase(array) {
  return newTestArray;
 }
 
-function gradeQuiz(candidateAnswers) {
-
-  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
+function outputAnswers() {
   for (j=0; j <questions.length; j++) {
     console.log(`${j+1}) ${questions[j]} \nYour answer: ${candidateAnswers[j]} \nThe correct answer: ${correctAnswers[j]}\n`);
   }
+}
+
+function gradeQuiz(candidateAnswers) {
+
+  // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
+
+  outputAnswers();
 
   let grade = 0;
   let correctResponses = 0
