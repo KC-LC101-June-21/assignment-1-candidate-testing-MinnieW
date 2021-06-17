@@ -42,7 +42,7 @@ function gradeQuiz(candidateAnswers) {
   let correctResponses = 0
   for (i=0; i < questions.length; i++) {
     if (changeValueToUpperCase(candidateAnswers)[i] === changeValueToUpperCase(correctAnswers)[i]) {
-      correctResponses = correctResponses + 1;
+      correctResponses += 1;
     } 
   } 
 
