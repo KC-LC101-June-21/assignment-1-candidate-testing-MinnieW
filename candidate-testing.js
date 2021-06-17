@@ -51,8 +51,6 @@ function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
 
-  outputAnswers();
-
   let grade = 0;
 
   grade = calculateCorrectResponses()/questions.length*100;
@@ -71,6 +69,7 @@ function runProgram() {
   // TODO 1.1c: Ask for candidate's name //
   askQuestion();
   console.log("\nWelcome " + candidateName + "!");
+  outputAnswers();
   gradeQuiz(this.candidateAnswers);
 }
 
